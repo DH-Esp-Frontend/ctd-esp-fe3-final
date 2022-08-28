@@ -26,19 +26,103 @@ Las siguientes funcionalidades son requisitos mínimos necesarios para la aproba
 
 ### Página 1: Inicio (Home)
 
+En esta página se deberá mostrar un listado en forma de grilla de los cómics de Marvel disponibles para su visualización detallada y para su compra. 
+
+Se deberá tener en cuenta lo siguiente:
+* Deberá ser la página de inicio de la web `/`.
+* La grilla deberá mostrar como máximo 12 cómics por página.
+* La grilla deberá soportar algún tipo de paginación simple. Se puede utilizar botones de `Anterior y Siguiente` o `carga infinita (Endless loading)`
+* Cada cómic deberá contener `imagen` y `nombre`, junto con dos botones `Comprar` y `Ver detalle`.
+* Permitir que todo el contenido junto con los resultados de la primer página, sean indexable por los buscadores.
+* Esta página debera utilizar el [Layout General](#layout-general)
+* Esta página permite la funcionalidad [Opcional 3: Compra de 1 Click](#opcional-3-compra-de-1-click)
+
 ### Página 2: Detalle del Cómic (Comic)
+
+En esta página se deberá mostrar un detalle de un cómic seleccionado junto al precio y stock del mismo. 
+
+Se deberá tener en cuenta lo siguiente:
+* Deberá estar en la ruta `/comics/[id]`.
+* La página deberá indicar al menos la siguiente información:
+  * Nombre del comic
+  * Descripción del comic
+  * Imagen principal
+  * Precio
+  * Precio anterior
+  * Botón de compra: en función de la disponibilidad de stock
+    * Si hay stock, el botón debe aparecer habilitado y ser funcional
+    * Si no hay stock, el botón debe estar deshabilitado y en gris, con el mensaje: Sin stock disponible 
+  * Lista de personajes asociados al cómic, con links a la página de cada personaje
+* Permitir que el contenido sea indexable por los buscadores.
+* Esta página debera utilizar el [Layout General](#layout-general)
 
 ### Página 3: Detalle del Personaje (Character)
 
+En esta página se deberá mostrar un detalle de un personaje individual de Marvel. 
+
+Se deberá tener en cuenta lo siguiente:
+* Deberá estar en la ruta `/personajes/[id]`.
+* La página deberá indicar al menos la siguiente información:
+  * Nombre del personaje
+  * Imagen principal
+  * Descripción o biografía del personaje
+* Permitir que el contenido sea indexable por los buscadores.
+* Esta página debera utilizar el [Layout General](#layout-general)
+* Esta página permite la funcionalidad [Opcional 2: Comics asociados al personaje](#opcional-2-comics-asociados-al-personaje)
+
 ### Página 4: Compra (Checkout)
+
+Al seleccionar el botón comprar en la página de detalle de cómic, se deberá navegar a la página de compra (checkout). 
+
+
+Se deberá tener en cuenta lo siguiente:
+* Deberá estar en la ruta `/checkout`.
+* La página deberá disponer de un formulario dividido en 3 secciones o pasos:
+  * Datos Personales
+  * Dirección de entrega
+  * Datos del pago
+* La sección de datos personales deberá contener los siguientes campos `obligatorios`:
+  * Nombre
+  * Apellido
+  * Email (el mismo deberá utilizar cualquier regla correcta de validación de emails)
+* La sección de dirección de entrega deberá contener los siguientes campos:
+  * Dirección `(requerido)`
+  * Departamento, piso, etc `(opcional)`
+  * Ciudad `(requerido)`
+  * Provincia `(requerido)`
+  * Código postal `(requerido)`
+* Finalmente, la sección de pago deberá disponer de los siguientes campos `obligatorios`:
+  * Número de tarjeta
+  * Nombre como aparece en la tarjeta
+  * Fecha de expiración
+  * Código de seguridad `(secreto estilo contraseña ***)`
+* El formulario deberá estar construido utilizando React Hook Form y Material UI
+* El componente de Mui deberá ser el [Stepper](https://mui.com/material-ui/react-stepper/)
+* Envío (submit) del formulario
+  * Se deberá utilizar la api de compra que ya se encuentra desarrollada en el repositorio.
+  * Si el envío es correcto, se debe redirigir al usuario a la [Página 5: Orden Confirmada (Confirmation)](#pgina-5-orden-confirmada) 
+  * Se deberá validar correctamente los errores de la api, e indicar el mismo al usuario por medio del componente [Snackbar](https://mui.com/material-ui/react-snackbar/)
+    * Tarjeta sin fondos disponibles
+    * Tarjeta sin autorización. Comuníquese con su banco e intente nuevamente.
+    * Datos de tarjeta incorrecta
+    * Dirección de entrega incorrecta
+* Se deberá indicar con un panel de información, que indique el `nombre`, `imagen` y `precio` del cómic que se está comprando, para que el usuario esté seguro de que la acción que está realizando.
+* Se deberá contar con los test unitarios que prueben las validaciones y deberá alcanzar un `coverage del 90%`
+* **No deberá** ser indexable por los motores de búsqueda.
+* Esta página debera utilizar el [Layout de Compra](#layout-de-compra)
+* Esta página permite la funcionalidad [Opcional 1: Tarjeta de Crédito](#opcional-1-tarjeta-de-crdito)
 
 ### Página 5: Orden confirmada
 
-Al realizar una compra satisfactoria, se deberá mostrar la pantalla de **Orden Confirmada**, la cual deberá:
-* Mostrar una sección superior verde con el mensaje “Que disfrutes tu compra”
+Al realizar una compra satisfactoria, se deberá mostrar la pantalla de **Orden Confirmada**.
+
+Se deberá tener en cuenta lo siguiente:
+* Deberá estar en la ruta `/confirmacion-compra`.
+* Mostrar una sección superior verde con el mensaje `Que disfrutes tu compra`
 * Deberá disponer de la información del comic (Nombre e imagen principal) de forma destacada y grande.
 * Deberá mostrar una sección inferior, con los datos personales, la dirección de entrega y el precio pagado por el cómic.
-* Esta página debera utilizar el Layout de Compra
+* **No deberá** ser indexable por los motores de búsqueda.
+* Esta página debera utilizar el [Layout de Compra](#layout-de-compra)
 
 Mostrar una sección verde con el mensaje “Que disfrutes tu compra”, junto a la información del cómic (nombre e imagen) en grande,
 Una sección inferior, con los datos personales, la dirección de entrega, y el precio pagado por el cómic.
@@ -48,11 +132,14 @@ Esta página deberá utilizar el Layout de compra, que contiene un encabezado y 
 
 ### Página 6: Preguntas frecuentes (FAQ)
 
-El encabezado general dispone de un link navegable hacia la página de preguntas frecuentes. Esta página deberá:
+El encabezado general dispone de un link navegable hacia la página de preguntas frecuentes.
+
+Se deberá tener en cuenta lo siguiente:
+ * Deberá estar en la ruta `/preguntas-frecuentes`.
  * Utilizar el componente [Acordeón (Accordion)](https://mui.com/material-ui/react-accordion/) de Material UI para mostrar las preguntas y respuestas
  * Cargar la información de las preguntas y respuestas del JSON de faqs con su título y descripción.
  * Permitir que todo el contenido sea indexable por los buscadores.
- * Utilizar el Layout general mencionado en la página de inicio.
+ * Esta página debera utilizar el [Layout General](#layout-general)
 
 
 ## Funcionalidades extras y opcionales

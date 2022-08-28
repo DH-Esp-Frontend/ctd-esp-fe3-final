@@ -91,8 +91,12 @@ Solo se admitirán entregas recibidas hasta el cierre de la clase 24, clase de E
 
 ### Formato de Entrega
 
-Se aceptará la entrega mediante la submisión de la URL de un repositorio de Github Privado, que haya compatido acceso a las siguientes cuentas: 
-* Camada 1 - Profesor: Tomás de Priede - Cuenta de Github [@tomiito](https://github.com/tomiito)
+Se aceptará la entrega mediante la submisión de dos URLs 
+
+* URL de un repositorio de Github Privado, que haya compatido acceso a las siguientes cuentas: 
+  * Camada 1 - Profesor: Tomás de Priede - Cuenta de Github [@tomiito](https://github.com/tomiito)
+
+* URL del Vercel donde el proyecto se encuentre desplegado y funcionando para su evaluación.
 
 El link al Google Form para la submisión será enviado por el profesor a cargo de la comisión.
 
