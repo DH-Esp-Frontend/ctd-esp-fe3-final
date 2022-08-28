@@ -1,51 +1,76 @@
 ## Funcionalidades
 
 ## Indice
-* [Iniciando la App](#iniciando-la-app)
-* [Dependencias](#dependencias)
-* [Dependencias de Desarrollo](#dependencias-de-desarrollo)
-* [Componentes de UI](#componentes-de-ui)
+* [Funcionalidades obligatorias](#funcionalidades-obligatorias)
+  * [Página 1: Inicio (Home)](#pgina-1-pgina-de-inicio-home)
+  * [Página 2: Detalle del Cómic (Comic)](#pgina-2-detalle-del-cmic-comic)
+  * [Página 3: Detalle del Personaje (Character)](#pgina-3-detalle-del-personaje-character)
+  * [Página 4: Compra (Checkout)](#pgina-4-compra-checkout)
+  * [Página 5: Orden Confirmada (Confirmation)](#pgina-5-orden-confirmada)
+  * [Página 6: Preguntas frecuentes (FAQ)](#pgina-6-preguntas-frecuentes-faq)
+* [Funcionalidades extras](#funcionalidades-extras-y-opcionales)
+  * [Opcional 1: Tarjeta de Crédito](#opcional-1-tarjeta-de-crdito)
+  * [Opcional 2: Comics asociados al personaje](#opcional-2-comics-asociados-al-personaje)
+  * [Opcional 3: Compra de 1 Click](#opcional-3-compra-de-1-click)
+* [Resultado final](#resultado-final)
 
 ## Funcionalidades obligatorias
 
 Las siguientes funcionalidades son requisitos mínimos necesarios para la aprobación del final y es fundamental que funcionen correctamente.
 
-* La aplicación deberá contar con dos páginas:
+**La aplicación deberá contar con seis (6) páginas: Inicio, Comic, Personaje, Checkout, Orden confirmada y Faqs**
 
-  1 - La página de inicio que debe contar con:
+### Página 1: Inicio (Home)
 
-          * Panel de filtros:
-            * Contendrá un input en donde el usuario pueda ingresar cualquier texto que desee para hacer un filtro sobre los personajes.
-            * Si el usuario borra el texto ingresado, se deberá mostrar el estado inicial, es decir la búsqueda sin filtro.
-            * Se deberá incluir un boton de "Limpiar filtros", el cual deberá borrar el texto dentro del input y mostrar el estado inicial, es decir la búsqueda sin filtro.
+### Página 2: Detalle del Cómic (Comic)
 
-          * Listado de personajes
-            * Deberá mostrar los personajes, que estarán representados por tarjetas con información sobre cada uno de ellos.
-            * Como máximo se deben mostrar en pantalla 20 tarjetas de personajes por página.
-            * Se deberá poder marcar y desmarcar a cada personaje como favorito desde su tarjeta individual, teniendo que persistir ese estado en la aplicación.
-            * Se deberá poder diferenciar si un personaje se encuentra marcado como favorito o no.
+### Página 3: Detalle del Personaje (Character)
 
-  2 - La página de favoritos que deberá cumplir con los siguientes requisitos:
+### Página 4: Compra (Checkout)
 
-            *  Todos los personaje marcados como favoritos, deberán aparecer dentro del listado de favoritos en la segunda página de la aplicación.
-            *  Si el usuario desmarca un personaje como favorito el mismo deberá desaparecer del listado de favoritos.
-            *  Un personaje que haya sido desmarcado de los favoritos, podrá ser marcado nuevamente desde la pantalla de inicio y deberá aparecer en el listado otra vez.
+### Página 5: Orden confirmada
+
+### Página 6: Preguntas frecuentes (FAQ)
+
+## Funcionalidades extras y opcionales
+
+Los siguientes aspectos son extras al requisito mínimo de aprobación que serán tenidos en cuenta para aumentar la nota final, siempre y cuando su funcionamiento sea correcto.
+
+### Opcional 1: Tarjeta de Crédito
+
+La [Página 4: Compra (Checkout)](#pgina-4-compra-checkout) dispone de un formulario dividido en 3 secciones. 
+La tercera sección dispone de los campos de tarjeta de crédito. Para mejorar la experiencia de usuario, se permite la utilización 
+de la librería [react-credit-cards](https://github.com/amaroteam/react-credit-cards), la cual deberá integrarse al uso de React Hook Form.
+
+El requisito dispone de lograr mostrar una tarjeta que se actualize dinámicamente mientras el usuario ingresa los datos de la misma, para mejorar la UX. 
+
+### Opcional 2: Comics asociados al personaje
+
+La [página de Detalle del Personaje](#pgina-3-detalle-del-personaje-character), podrá disponer de una sección titulada **Otros comics de "nombre del personaje"**
+* Ej: Otros cómics de Spiderman, Otros cómics de Wolverine
+
+Esta sección, deberá estar listada por debajo de los datos principales del personaje, y deberá mostrar en un formato agradable al usuario, un listado de hasta 6 elementos, 
+re-utilizando los componentes de tarjeta de Comics, asociados al personaje. Para ello se puede utilizar la api
+```/v1/public/characters/{characterId}/comics```
+
+Estos componentes deben seguir la misma regla que los comics de la [página de Inicio](#pgina-1-inicio-home), es decir no poseer validación de stock.
 
 
-## Funcionalidades extras
 
-Los siguientes aspectos son extras al requisito mínimo de aprobación que serán tenidos en cuenta para aumentar la nota final, siempre y cuando su funcionamiento sea correcto:
+### Opcional 3: Compra de 1 Click
 
-    * La página de favoritos:
-      * Podrá contar con un botón de "Eliminar todos", que deberá desmarcar todos los personajes del listado de favoritos y los mismos no deberán aparecer marcados como favoritos en la página principal.
+La [página de Inicio](#pgina-1-inicio-home), podrá disponer de un botón "Compra rápida" para cada una de los cómics mostrados en la grilla.
+Si se decide realizar esta funcionalidad, el botón "Compra rápida" siempre debera estar habilitado, es decir, no debe haber
+ningún control de stock previo.
 
-    * Realización de una tercer página de vista de cada personaje:
-    Al hacer click sobre un personaje deberá redirigirnos a está página.
-        * Va a requerir de la invocación de la API de [Episodios](https://rickandmortyapi.com/documentation/#get-multiple-episodes) de Rick and Morty.
-        * Dentro de la vista de cada personaje:
-           * Se mostrará un listado de los episodios en los cuales aparece.
-           * También podríamos indicar si el personaje está marcado como favorito o no, y junto con la posibilidad de marcarlo o desmarcarlo.
+Al presionar este botón, se debera invocar a una api (que se deberá construir) y podrán suceder alguno de los dos flujos siguientes:
+* Si el comic tiene stock, se deberá redirigir a la [página 4 de compra](#pgina-4-compra-checkout), tal como sucede en la pagina 2 del detalle de comic.
+* Si el comic no tiene stock, se deberá redirigir a la [página 2 de detalle de comic](#pgina-2-detalle-del-cmic-comic) que mostrara la información relevante junto con el botón "Sin stock" 
+
+_Nota: Si bien mostrar la disponibilidad en la pantalla de inicio puede ser una ventaja, en este caso es un requisito obligatorio
+si se desarrolla esta funcionalidad, que el stock solo se evalúe luego de presionar el botón comprar en la pantalla de inicio.
+Esta lógica no debe interferir con la lógica de pre-chequeo de la página 2._
 
 ## Resultado final
 
-    Te dejamos un video como ejemplo de cómo debería funcionar tu aplicación, en la carpeta public
+Te dejamos un video como ejemplo de cómo debería funcionar tu aplicación, en la carpeta public
