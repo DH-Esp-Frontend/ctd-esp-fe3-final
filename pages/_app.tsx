@@ -1,8 +1,22 @@
-import '../styles/globals.css'
 import type { AppProps } from 'next/app'
+import {CssBaseline, ThemeProvider} from "@mui/material";
+import {theme} from "../styles/material-theme";
+import LayoutGeneral from "../components/layouts/layoutGeneral";
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+  return <ThemeProvider theme={theme}>
+    <CssBaseline />
+    <LayoutGeneral>
+      <Component {...pageProps} />
+    </LayoutGeneral>
+    <style jsx global>{`
+              /* Other global styles such as 'html, body' etc... */
+
+              #__next {
+                height: 100%;
+              }
+            `}</style>
+  </ThemeProvider>
 }
 
 export default MyApp
