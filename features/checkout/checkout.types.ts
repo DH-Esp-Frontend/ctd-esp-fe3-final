@@ -16,5 +16,10 @@ export type CheckoutInput = {
         cvc: string,
         expDate: string,
         nameOnCard: string
+    },
+    order: {
+        name: string;
+        image: string;
+        price: number;
     }
 }
