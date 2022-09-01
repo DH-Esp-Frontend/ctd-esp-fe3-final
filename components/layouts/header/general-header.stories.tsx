@@ -15,3 +15,8 @@ const Template: ComponentStory<typeof GeneralHeader> = (args: any) => <GeneralHe
 export const Primary = Template.bind({});
 Primary.args = {
 };
+
+export const Simple = Template.bind({});
+Simple.args = {
+  variant: 'simple'
+};

@@ -1,3 +1,5 @@
+const path = require('path')
+
 module.exports = {
   "stories": [
     "../components/**/*.stories.mdx",
@@ -6,7 +8,13 @@ module.exports = {
   "addons": [
     "@storybook/addon-links",
     "@storybook/addon-essentials",
-    "@storybook/addon-interactions"
+    "@storybook/addon-interactions",
+    {
+      name: 'storybook-addon-next',
+      options: {
+        nextConfigPath: path.resolve(__dirname, '../next.config.js')
+      }
+    }
   ],
   "typescript": { reactDocgen: false },
   "framework": "@storybook/react",

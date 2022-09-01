@@ -207,6 +207,8 @@ Este Layout, debera ser utilizado en las siguientes páginas:
 El mismo contiene un encabezado (Header) con links navegables que deberán ser ajustados con sus correspondientes rutas, y
 un pie de página que no requiere de modificación alguna.
 
+Archivo: [components/layouts/layout-general.tsx](components/layouts/layout-general.tsx)
+
 ### Layout de Compra
 
 Este Layout, debera ser utilizado en las siguientes páginas:
@@ -216,6 +218,7 @@ Este Layout, debera ser utilizado en las siguientes páginas:
 El mismo contiene un encabezado (Header) simple y un pie de página que no requiere de modificación alguna. Este Layout 
 tiene la finalidad de no distraer al usuario de la experiencia de compra.
 
+Archivo: [components/layouts/layout-checkout.tsx](components/layouts/layout-checkout.tsx)
 
 ### Requisito 3: Adaptabilidad (Responsive)
 

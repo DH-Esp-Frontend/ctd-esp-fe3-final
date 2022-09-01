@@ -25,7 +25,7 @@ Solo se podrán instalar las siguientes dependencias:
 * Next.js
 * React-credit-cards
 
-Nota: Se sugiere no utilizar Redux ni React-Router por la complejidad que puede alcanzar una aplicación con Next.js.
+Nota: Se sugiere no utilizar Redux ni React-Router por la complejidad que pueden alcanzar en una aplicación con Next.js.
 
 ## Dependencias de Desarrollo
 
@@ -36,6 +36,9 @@ Se podrán hacer uso de las siguientes dependencias adicionales para desarrollo 
 
 * Jest y Testing Library
     * El uso de Testing es requerido para verificar las funcionalidades.
+
+* Storybook
+  * Storybook se encuentra configurado y listo para funcionar con Next.js y Material UI. Su uso es alentado pero no obligatorio para desarrollar los componentes que serán utilizados en las distintas páginas.
 
 ## Componentes de UI
 
