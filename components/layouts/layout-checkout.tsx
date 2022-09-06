@@ -1,9 +1,9 @@
 import * as React from 'react';
 import {FC, PropsWithChildren} from "react";
 import {Stack} from "@mui/material";
-import GeneralHeader from "./header/general-header.component";
-import GeneralFooter from "./footer/general-footer.component";
 import Box from "@mui/material/Box";
+import GeneralHeader from "dh-marvel/components/layouts/header/general-header.component";
+import GeneralFooter from "dh-marvel/components/layouts/footer/general-footer.component";
 
 
 const LayoutCheckout: FC<PropsWithChildren> = ({children}: PropsWithChildren) => {

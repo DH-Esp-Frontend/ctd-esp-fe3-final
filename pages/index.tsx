@@ -1,6 +1,6 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import BodySingle from "../components/layouts/body/single/body-single";
+import BodySingle from "dh-marvel/components/layouts/body/single/body-single";
 
 const Home: NextPage = () => {
   return (

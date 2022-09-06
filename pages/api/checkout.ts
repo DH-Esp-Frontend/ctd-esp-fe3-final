@@ -1,10 +1,13 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import {CheckoutInput} from "../../features/checkout/checkout.types";
+import {CheckoutInput} from "dh-marvel/features/checkout/checkout.types";
 import {
-    ERROR_CARD_DATA_INCORRECT, ERROR_CARD_WITHOUT_AUTHORIZATION,
-    ERROR_CARD_WITHOUT_FUNDS, ERROR_INCORRECT_ADDRESS,
-    ERROR_METHOD_NOT_ALLOWED, ERROR_SERVER
-} from "../../services/checkout/checkout.errors";
+    ERROR_CARD_DATA_INCORRECT,
+    ERROR_CARD_WITHOUT_AUTHORIZATION,
+    ERROR_CARD_WITHOUT_FUNDS,
+    ERROR_INCORRECT_ADDRESS,
+    ERROR_METHOD_NOT_ALLOWED,
+    ERROR_SERVER
+} from "dh-marvel/services/checkout/checkout.errors";
 
 const serverError = 'error'
 const invalidAddress = 'invalid'

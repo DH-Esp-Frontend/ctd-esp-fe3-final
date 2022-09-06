@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+import BodySingle from "dh-marvel/components/layouts/body/single/body-single";
 
-import BodySingle from "./body-single";
 
 export default {
   title: 'Layout/Body/BodySingle',
