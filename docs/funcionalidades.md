@@ -99,7 +99,7 @@ Se deberá tener en cuenta lo siguiente:
 * El formulario deberá estar construido utilizando React Hook Form y Material UI
 * El componente de Mui deberá ser el [Stepper](https://mui.com/material-ui/react-stepper/)
 * Envío (submit) del formulario
-  * Se deberá utilizar la api de compra que ya se encuentra desarrollada en el repositorio. [POST /api/checkout](/pages/api/checkout.ts)
+  * Se deberá utilizar la api de compra que ya se encuentra desarrollada en el repositorio. [POST /api/checkout](/pages/api/checkout.route.ts)
   * Si el envío es correcto, se debe redirigir al usuario a la [Página 5: Orden Confirmada (Confirmation)](#pgina-5-orden-confirmada) 
   * Se deberá validar correctamente los errores de la api, e indicar el mismo al usuario por medio del componente [Snackbar](https://mui.com/material-ui/react-snackbar/)
     * Tarjeta sin fondos disponibles

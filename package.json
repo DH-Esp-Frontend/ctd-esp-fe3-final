@@ -11,8 +11,8 @@
     "build-storybook": "build-storybook",
     "test": "jest --env=jsdom",
     "test:watch": "jest --env=jsdom --watch",
-    "test:ci": "jest --ci",
-    "coverage": "jest --env=jsdom --coverage"
+    "test:ci": "jest --ci --runInBand --detectOpenHandles --forceExit ",
+    "coverage": "jest --env=jsdom --coverage --runInBand --detectOpenHandles --forceExit "
   },
   "dependencies": {
     "@emotion/react": "^11.10.4",
@@ -47,8 +47,11 @@
     "eslint": "8.22.0",
     "eslint-config-next": "12.2.5",
     "eslint-plugin-storybook": "^0.6.4",
+    "msw": "^0.47.0",
+    "node-mocks-http": "^1.11.0",
     "sb": "^6.5.10",
     "storybook-addon-next": "^1.6.7",
-    "typescript": "4.7.4"
+    "typescript": "4.7.4",
+    "whatwg-fetch": "^3.6.2"
   }
 }
