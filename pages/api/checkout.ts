@@ -39,16 +39,16 @@ export default function handler(req: NextApiRequest, res: NextApiResponse<Data>)
         res.status(500).json( ERROR_SERVER);
         return
     }
-    if (body.card.number === validCard){
-        res.status(200).json( {data: body.order});
-        return
-    }
     if (body.card.number === withoutFundsCard){
         res.status(400).json( ERROR_CARD_WITHOUT_FUNDS);
         return
     }
     if (body.card.number === withoutAuthorizationCard){
         res.status(400).json( ERROR_CARD_WITHOUT_AUTHORIZATION);
+        return
+    }
+    if (body.card.number === validCard){
+        res.status(200).json( {data: body.order});
         return
     }
     res.status(400).json( ERROR_CARD_DATA_INCORRECT);

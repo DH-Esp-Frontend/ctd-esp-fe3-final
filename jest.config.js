@@ -22,7 +22,11 @@ const customJestConfig = {
         '!components/**/*.stories.tsx',
         'features/**/*.ts',
         'features/**/*.tsx',
+        'pages/**/*.ts',
+        'pages/**/*.tsx',
         'services/**/*.ts',
+        '!pages/_app.tsx',
+        '!pages/_document.tsx',
         '!**/*.test.tsx',
         '!**/*.spec.tsx'
     ],
