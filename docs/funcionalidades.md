@@ -109,7 +109,8 @@ Se deberá tener en cuenta lo siguiente:
     * Error de servidor. Intente nuevamente
 * Se deberá indicar con un panel de información, que indique el `nombre`, `imagen` y `precio` del cómic que se está comprando, para que el usuario esté seguro de que la acción que está realizando.
 * Se deberá contar con los test unitarios que prueben las validaciones y deberá alcanzar un `coverage del 90%`
-* **No deberá** ser indexable por los motores de búsqueda.
+* Ten en cuenta, lo que puede suceder si se ingresa a este sitio directamente por URL. Quizá puedas redireccionar al Home en este caso.
+* **No precisa** ser indexable por los motores de búsqueda.
 * Esta página debera utilizar el [Layout de Compra](#layout-de-compra)
 * Esta página permite la funcionalidad [Opcional 1: Tarjeta de Crédito](#opcional-1-tarjeta-de-crdito)
 
@@ -122,7 +123,8 @@ Se deberá tener en cuenta lo siguiente:
 * Mostrar una sección superior verde con el mensaje `Que disfrutes tu compra`
 * Deberá disponer de la información del comic (Nombre e imagen principal) de forma destacada y grande.
 * Deberá mostrar una sección inferior, con los datos personales, la dirección de entrega y el precio pagado por el cómic.
-* **No deberá** ser indexable por los motores de búsqueda.
+* Ten en cuenta, lo que puede suceder si se ingresa a este sitio directamente por URL. Quizá puedas redireccionar al Home en este caso.
+* **No precisa** ser indexable por los motores de búsqueda.
 * Esta página debera utilizar el [Layout de Compra](#layout-de-compra)
 
 Mostrar una sección verde con el mensaje “Que disfrutes tu compra”, junto a la información del cómic (nombre e imagen) en grande,

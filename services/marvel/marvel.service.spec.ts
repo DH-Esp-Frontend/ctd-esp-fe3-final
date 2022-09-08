@@ -3,6 +3,7 @@ import comics from "dh-marvel/test/mocks/comics";
 import character from "dh-marvel/test/mocks/character";
 import comic from "dh-marvel/test/mocks/comic";
 import comicsWithOffsetAndLimit from "dh-marvel/test/mocks/comicsWithOffsetAndLimit";
+import comicWithoutStock from "dh-marvel/test/mocks/comicWithoutStock";
 
 describe('MarvelService', () => {
     beforeEach(() => {
@@ -31,6 +32,17 @@ describe('MarvelService', () => {
                     price: 72,
                     oldPrice: 87,
                     stock: 2
+                })
+            })
+        })
+        describe('when comic is found with id that ends with 0', () => {
+            it('should return a valid comic without stock', async () => {
+                const data = await getComic(10);
+                expect(data).toStrictEqual({
+                    ...comicWithoutStock,
+                    price: 48,
+                    oldPrice: 48,
+                    stock: 0
                 })
             })
         })

@@ -21,9 +21,15 @@ export const getComic = async (comicId: number) => {
     const results = data.data.results;
     if (results.length > 0) {
         const comic = results[0];
-        comic.price = 72;
-        comic.oldPrice = 87;
-        comic.stock = 2;
+        if (`${comic.id}`.endsWith('0')) {
+            comic.price = 48;
+            comic.oldPrice = 48;
+            comic.stock = 0;
+        } else {
+            comic.price = 72;
+            comic.oldPrice = 87;
+            comic.stock = 2;
+        }
         return comic;
     } else return null;
 }
