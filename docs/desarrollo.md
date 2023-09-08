@@ -15,7 +15,7 @@ Instalamos las dependencias
 
 Podemos iniciar nuestra aplicación con el comando
 
-`npm run start`
+`npm run dev`
 
 ## Dependencias
 
